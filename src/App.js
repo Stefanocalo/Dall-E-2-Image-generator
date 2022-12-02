@@ -83,10 +83,10 @@ function App () {
         >Generate Image</button>
       </div>
       <div className='loadingContainer'>
-        <div className="circle_green"></div>
-        <div className="circle_blue"></div>
-        <div className="circle_yellow"></div>
-        <div className="circle_red"></div>
+        <div className="circle_1"></div>
+        <div className="circle_2"></div>
+        <div className="circle_3"></div>
+        <div className="circle_4"></div>
       </div>
       <div className='imageContainer' data-testid='result'>
         {
