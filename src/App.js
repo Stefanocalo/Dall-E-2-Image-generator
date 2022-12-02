@@ -31,8 +31,13 @@ function App () {
   const generateImage = async () => {
 
     const button = document.getElementById('button');
+    const loading = document.querySelector('.loadingContainer')
+    const imageContainer = document.querySelector('.imageContainer');
 
     button.disabled = true;
+    imageContainer.classList.toggle('active');
+    loading.classList.toggle('active');
+    
 
     // api call
 
@@ -46,7 +51,12 @@ function App () {
 
     setResult(response.data.data[0].url);
 
+    loading.classList.remove('active');
+    imageContainer.classList.remove('active');
+    
+
     button.disabled = false;
+
   };
 
   const handleChange = ({target}) => {
@@ -71,6 +81,12 @@ function App () {
           disabled= {false}
           id='button'
         >Generate Image</button>
+      </div>
+      <div className='loadingContainer'>
+        <div className="circle_green"></div>
+        <div className="circle_blue"></div>
+        <div className="circle_yellow"></div>
+        <div className="circle_red"></div>
       </div>
       <div className='imageContainer' data-testid='result'>
         {
