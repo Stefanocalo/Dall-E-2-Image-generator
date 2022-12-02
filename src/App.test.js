@@ -11,15 +11,15 @@ test('Component elements render correctly', () => {
   const button = screen.getByTestId('button');
   const imageContainer = screen.getByTestId('result');
 
-  expect(input).toBeInTheDocument();
-  expect(h2).toBeInTheDocument();
-  expect(button).toBeEnabled();
-  expect(imageContainer).toBeInTheDocument();
+  expect(input).toBeInTheDocument;
+  expect(h2).toBeInTheDocument;
+  expect(button).toBeEnabled;
+  expect(imageContainer).toBeInTheDocument;
 });
 
 // ---- Integration test ----
 
-test('Submitting a search display an image', () => {
+test('Clicking the button after an input call generateImage()', () => {
 
   render(<App />);
 
