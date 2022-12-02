@@ -44,18 +44,21 @@ function App () {
   return (
     <div className='main'>
       <h2>Generate an Image using Dall-E 2 API</h2>
-
-      <textarea className='input'
-        placeholder='Search Rick & Morty in the Spiderman multiverse'
-        onChange={handleChange}
-      />
-      <button
-        onClick={generateImage}
-      >Generate Image</button>
+      <div className='inputContainer'>
+        <textarea className='input'
+          placeholder='Search Rick & Morty in the Spiderman multiverse'
+          onChange={handleChange}
+        />
+      </div>
+      <div className='buttonContainer'>
+        <button
+          onClick={generateImage}
+        >Generate Image</button>
+      </div>
       <div className='imageContainer'>
         {
         result.length > 0 ? (
-            <img className="result-image" src={result} alt="result" />
+            <img className="resultImage" src={result} alt="result" />
           ) : (
             <></>
         )}
