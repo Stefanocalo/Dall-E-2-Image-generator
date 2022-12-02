@@ -29,11 +29,17 @@ function App () {
   // -----------------------------------------
 
   const generateImage = async () => {
+
+    // api call
+
     const response = await openai.createImage({
       prompt: prompt,
       n: 1,
       size: "512x512",
     });
+
+      //Assign response url to result state variable
+
     setResult(response.data.data[0].url);
   };
 
