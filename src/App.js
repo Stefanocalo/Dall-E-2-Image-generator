@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import {React} from 'react';
+import { useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+function App () {
 
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  // Declaring state
+  const [prompt, setPrompt] = useState('');
+
+  const generateImage = async () => {};
+
+  const handleChange = ({target}) => {
+    setPrompt(target.value);
+  }
+
+  return (
+    <div className='main'>
+      <h2>Generate an Image using Dall-E 2 API</h2>
+
+      <textarea className='input'
+        placeholder='Search Rick & Morty in the Spiderman multiverse'
+        onChange={handleChange}
+      />
+      <button
+        onClick={generateImage}
+      >Generate Image</button>
     </div>
-  );
+  )
+
 }
 
 export default App;
