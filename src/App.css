@@ -39,6 +39,16 @@ h2 {
 button {
   padding: 0.7rem;
   border-radius: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bfbebe;
+}
+
+button:active {
+  color: #bfbebe;
+  background-color: #544848;
 }
 
 .imageContainer {
