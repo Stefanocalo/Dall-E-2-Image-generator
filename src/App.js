@@ -30,6 +30,10 @@ function App () {
 
   const generateImage = async () => {
 
+    const button = document.getElementById('button');
+
+    button.disabled = true;
+
     // api call
 
     const response = await openai.createImage({
@@ -41,6 +45,8 @@ function App () {
       //Assign response url to result state variable
 
     setResult(response.data.data[0].url);
+
+    button.disabled = false;
   };
 
   const handleChange = ({target}) => {
@@ -49,9 +55,11 @@ function App () {
 
   return (
     <div className='main'>
-      <h2>Generate an Image using Dall-E 2 API</h2>
+      <h2 data-testid = 'h2' >Generate an Image using Dall-E 2 API</h2>
       <div className='inputContainer'>
-        <textarea className='input'
+        <textarea 
+          className='input'
+          data-testid='input'
           placeholder='Search Rick & Morty in the Spiderman multiverse'
           onChange={handleChange}
         />
@@ -59,9 +67,12 @@ function App () {
       <div className='buttonContainer'>
         <button
           onClick={generateImage}
+          data-testid='button'
+          disabled= {false}
+          id='button'
         >Generate Image</button>
       </div>
-      <div className='imageContainer'>
+      <div className='imageContainer' data-testid='result'>
         {
         result.length > 0 ? (
             <img className="resultImage" src={result} alt="result" />
