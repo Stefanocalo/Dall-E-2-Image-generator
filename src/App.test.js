@@ -1,5 +1,5 @@
+import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { click } from '@testing-library/user-event/dist/click';
 import App from './App';
 
 test('Component elements render correctly', () => {
@@ -11,25 +11,37 @@ test('Component elements render correctly', () => {
   const button = screen.getByTestId('button');
   const imageContainer = screen.getByTestId('result');
 
-  expect(input).toBeInTheDocument;
-  expect(h2).toBeInTheDocument;
-  expect(button).toBeEnabled;
-  expect(imageContainer).toBeInTheDocument;
+  expect(input).toBeInTheDocument();
+  expect(h2).toBeInTheDocument();
+  expect(button).toBeEnabled();
+  expect(imageContainer).toBeInTheDocument();
 });
 
 // ---- Integration test ----
 
-test('Clicking the button after an input call generateImage()', () => {
+test('Clicking the button after an input call generateImage()', async () => {
+
+  render(<App />);
+
+  const input = screen.getByTestId('input');
+
+  input.innerHTML = 'test';
+
+  expect(input).toHaveTextContent('test');
+});
+
+
+test('Pressing the button after with text in the textbox generate an image and disable the button.', async () => {
 
   render(<App />);
 
   const input = screen.getByTestId('input');
   const button = screen.getByTestId('button');
-  const generateImage = App.generateImage;
 
   input.innerHTML = 'test';
   fireEvent.click(button);
 
-  expect(generateImage).toBeCalled;
-
-})
+  expect(input).toHaveTextContent('test');
+  expect(button).toBeDisabled();
+  expect(await screen.getByAltText('image')).not.toBeInTheDocument();
+});

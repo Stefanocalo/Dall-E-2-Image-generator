@@ -28,6 +28,12 @@ function App () {
   
   // -----------------------------------------
 
+  // ---- Random searches array ----
+
+  const rndSearches = ['A photo of an astronaut riding a horse', 'A raccoon playing tennis at Wimbledon in the 1990s', 'Photo of hip hop cow in a denim jacket recording a hit single in the studio', 'Photo of hip hop cow in a denim jacket recording a hit single in the studio', 'An italian town made of pasta, tomatoes, basil and parmesan' ]
+  const rnd = Math.floor(Math.random() * 5);
+  // -----------------------------------------
+
   const generateImage = async () => {
 
     const button = document.getElementById('button');
@@ -38,14 +44,25 @@ function App () {
     imageContainer.classList.toggle('active');
     loading.classList.toggle('active');
     
-
+    let response;
     // api call
+    if (prompt.length === 0) {
+      let rndSearch = rndSearches[rnd];
+      setPrompt(rndSearch);
+       response = await openai.createImage({
+        prompt: rndSearch,
+        n: 1,
+        size: "512x512",
+      });
+    } else {
+       response = await openai.createImage({
+        prompt: prompt,
+        n: 1,
+        size: "512x512",
+      });
+    }
 
-    const response = await openai.createImage({
-      prompt: prompt,
-      n: 1,
-      size: "512x512",
-    });
+    
 
       //Assign response url to result state variable
 
@@ -67,12 +84,13 @@ function App () {
     <div className='main'>
       <h2 data-testid = 'h2' >Generate an Image using Dall-E 2 API</h2>
       <div className='inputContainer'>
-        <textarea 
+        <input 
           className='input'
           data-testid='input'
           placeholder='Search Rick & Morty in the Spiderman multiverse'
           onChange={handleChange}
-        />
+          value={prompt}
+          ></input>
       </div>
       <div className='buttonContainer'>
         <button
@@ -80,7 +98,7 @@ function App () {
           data-testid='button'
           disabled= {false}
           id='button'
-        >Generate Image</button>
+        >{prompt ? 'Generate Image' : 'Generate Random Image'}</button>
       </div>
       <div className='loadingContainer'>
         <div className="circle_1"></div>
@@ -91,7 +109,7 @@ function App () {
       <div className='imageContainer' data-testid='result'>
         {
         result.length > 0 ? (
-            <img className="resultImage" src={result} alt="result" />
+            <img className="resultImage" src={result} alt="result" data-testid='image' />
           ) : (
             <></>
         )}
