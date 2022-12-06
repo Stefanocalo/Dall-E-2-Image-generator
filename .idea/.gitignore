@@ -8,3 +8,6 @@
 /dataSources.local.xml
 #api keys
 .env
+#node_modules
+/node_modules/
+
