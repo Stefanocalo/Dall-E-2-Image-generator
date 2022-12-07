@@ -30,8 +30,8 @@ function App () {
 
   // ---- Random searches array ----
 
-  const rndSearches = ['A photo of an astronaut riding a horse', 'A raccoon playing tennis at Wimbledon in the 1990s', 'Photo of hip hop cow in a denim jacket recording a hit single in the studio', 'Photo of hip hop cow in a denim jacket recording a hit single in the studio', 'An italian town made of pasta, tomatoes, basil and parmesan' ]
-  const rnd = Math.floor(Math.random() * 5);
+  const rndSearches = ['A photo of an astronaut riding a horse', 'A raccoon playing tennis at Wimbledon in the 1990s', 'Photo of hip hop cow in a denim jacket recording a hit single in the studio', 'Photo of hip hop cow in a denim jacket recording a hit single in the studio', 'An italian town made of pasta, tomatoes, basil and parmesan', 'Mona Lisa taking selfie', 'Mars populated by aliens', 'World populated by ants', 'A living walking cartoon chair singing', 'Avengers Disney style', 'baby hulk drawn with pastels', 'A flying dog', 'Superman in the Pixar universe' ];
+  const rnd = Math.floor(Math.random() * 13);
   // -----------------------------------------
 
   const generateImage = async () => {
