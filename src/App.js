@@ -73,6 +73,7 @@ function App () {
     
 
     button.disabled = false;
+    setPrompt('');
 
   };
 

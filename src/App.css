@@ -173,18 +173,18 @@ h2 {
 }
 
 .circle_1 {
-    animation: bouncing 9s ease-in;
+    animation: bouncing infinite 10s ease-in;
 }
 
 .circle_2 {
-    animation: bouncing 9s 0.1s ease-in;
+    animation: bouncing infinite 10s 0.1s ease-in;
 }
 
 .circle_3 {
-    animation: bouncing 9s 0.2s ease-in;
+    animation: bouncing infinite 10s 0.2s ease-in;
 }
 
 .circle_4 {
-    animation: bouncing 9s 0.3s ease-in;
+    animation: bouncing infinite 10s 0.3s ease-in;
 }
 
