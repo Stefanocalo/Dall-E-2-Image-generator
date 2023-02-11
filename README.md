@@ -19,7 +19,7 @@
     <a href="https://github.com/Stefanocalo/Dall-e-2-Image-Generator"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Stefanocalo/Dall-e-2-Image-Generator">View Demo</a>
+    <a href="https://image-generator-dalle.netlify.app">View Demo</a>
     ·
     <a href="https://github.com/Stefanocalo/Dall-e-2-Image-Generator/issues">Report Bug</a>
     ·
